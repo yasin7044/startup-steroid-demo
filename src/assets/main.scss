@@ -113,6 +113,14 @@ $d-sides: (top, right, bottom, left);
   text-align: center;
 }
 
+.w-full {
+  width: 100%;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;

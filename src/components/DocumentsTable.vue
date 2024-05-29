@@ -69,14 +69,14 @@ function getComponentProps(column, row) {
 
 <template>
   <div class="table-wrapper rounded column">
-    <div class="row justify-between items-center mb-4">
+    <div class="row justify-between items-center mb-4 w-full" >
       <div class="">
         <h3>Document</h3>
         <small>Document tracking information</small>
       </div>
 
       <DBtnDropdown label="Weekly">
-        <div class="p-2 column" >
+        <div class="p-2 column">
           <div class="cursor-pointer p-1">Daily</div>
           <div class="cursor-pointer p-1">Monthly</div>
           <div class="cursor-pointer p-1">Yearly</div>
@@ -84,33 +84,35 @@ function getComponentProps(column, row) {
       </DBtnDropdown>
     </div>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th
-            v-for="column in columns"
-            :key="'column-' + column.name"
-            class="text-start"
-            :class="column.class"
-            :style="column.style"
-          >
-            {{ column.label }}
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(row, i) in rows" :key="i">
-          <td v-for="column in columns" :key="`row-${i}-${column.name}`" class="text-start">
-            <template v-if="column.component">
-              <component :is="column.component" v-bind="getComponentProps(column, row)" />
-            </template>
-            <template v-else>
-              {{ row[column.name] }}
-            </template>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="w-full overflow-auto">
+      <table class="table">
+        <thead>
+          <tr>
+            <th
+              v-for="column in columns"
+              :key="'column-' + column.name"
+              class="text-start"
+              :class="column.class"
+              :style="column.style"
+            >
+              {{ column.label }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(row, i) in rows" :key="i">
+            <td v-for="column in columns" :key="`row-${i}-${column.name}`" class="text-start">
+              <template v-if="column.component">
+                <component :is="column.component" v-bind="getComponentProps(column, row)" />
+              </template>
+              <template v-else>
+                {{ row[column.name] }}
+              </template>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -118,7 +120,6 @@ function getComponentProps(column, row) {
 .table-wrapper {
   padding: 1rem;
   background-color: white;
-  overflow: auto;
 
   h3 {
     font-weight: 600;
