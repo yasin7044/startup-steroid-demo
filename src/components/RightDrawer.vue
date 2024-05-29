@@ -72,7 +72,7 @@ $right-drawer-width: 250px;
   min-width: $right-drawer-width;
   width: $right-drawer-width;
   position: fixed;
-  top: 87px;
+  top: 74px;
   right: 0;
   background-color: white;
   padding-top: 0.5rem;

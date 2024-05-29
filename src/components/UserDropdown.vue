@@ -9,15 +9,25 @@ const dropdownOpen = defineModel({
 </script>
 
 <template>
-  <div class="row items-center no-wrap">
-    <DAvatar src="https://avatar.iran.liara.run/public/23" />
-    <DBtnDropdown v-model="dropdownOpen" label="Admin" >
-      <div class="p-2 column" >
-        <div class="cursor-pointer p-1">Developer</div>
-        <div class="cursor-pointer p-1">Tester</div>
+  <DBtnDropdown v-model="dropdownOpen" class="user-dropdown">
+    <template #label>
+      <div class="row items-center no-wrap">
+        <DAvatar src="https://avatar.iran.liara.run/public/23" />
+        <span class="user-dropdown__label ml-2">Administrator</span>
       </div>
-    </DBtnDropdown>
-  </div>
+    </template>
+
+    <div class="p-2 column">
+      <div class="cursor-pointer p-1">Developer</div>
+      <div class="cursor-pointer p-1">Tester</div>
+    </div>
+  </DBtnDropdown>
 </template>
 
-<style scoped></style>
+<style lang="scss">
+@media only screen and (max-width: 440px) {
+  .user-dropdown__label {
+    display: none;
+  }
+}
+</style>

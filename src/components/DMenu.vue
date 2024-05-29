@@ -34,7 +34,7 @@ const activatorProps = computed(() => {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss">
 .menu {
   position: relative;
   display: inline-block;

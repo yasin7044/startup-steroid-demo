@@ -130,6 +130,7 @@ function getComponentProps(column, row) {
   }
 
   table {
+    width: 100%;
     th {
       font-weight: bold;
       padding: 0.5rem;
@@ -142,6 +143,7 @@ function getComponentProps(column, row) {
         padding: 0.5rem;
         width: auto;
         position: relative;
+        white-space: nowrap;
       }
     }
   }

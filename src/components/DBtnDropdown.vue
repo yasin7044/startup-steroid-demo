@@ -3,6 +3,10 @@ import DMenu from '@/components/DMenu.vue'
 import DBtn from '@/components/DBtn.vue'
 import { Icon } from '@iconify/vue'
 
+defineOptions({
+  inheritAttrs: false
+})
+
 defineProps({
   label: String
 })
@@ -14,11 +18,13 @@ const menuOpen = defineModel({
 </script>
 
 <template>
-  <DMenu v-model="menuOpen">
+  <DMenu v-model="menuOpen" v-bind="$attrs">
     <template #activator="{ props, open }">
       <DBtn v-bind="props">
         <div class="row items-center justify-center">
-          <span class="mr-2" >{{ label }}</span>
+          <slot name="label">
+            <span class="mr-2">{{ label }}</span>
+          </slot>
           <Icon
             icon="mdi:chevron-down"
             class="d-btn-dropdown__arrow"

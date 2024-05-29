@@ -1,18 +1,22 @@
 <script setup>
-import VueApexCharts from "vue3-apexcharts";
+import VueApexCharts from 'vue3-apexcharts'
+import { computed } from 'vue'
 
-defineProps({
+const props = defineProps({
   type: {
     type: String,
-    default: "line",
-  }
+    default: 'line'
+  },
+  title: String
 })
 
-const series = [{
-  name: "Desktops",
-  data: [10, 30, 25, 10, 25, 35, 22, 28, 38, 30, 22, 40]
-}]
-const chartOptions = {
+const series = [
+  {
+    name: 'Desktops',
+    data: [10, 30, 25, 10, 25, 35, 22, 28, 38, 30, 22, 40]
+  }
+]
+const chartOptions = computed(() => ({
   chart: {
     zoom: {
       enabled: false
@@ -25,28 +29,33 @@ const chartOptions = {
     curve: 'smooth'
   },
   title: {
-    text: 'Product Trends by Month',
+    text: props.title,
     align: 'left'
   },
   grid: {
     row: {
       colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
       opacity: 0.5
-    },
+    }
   },
   xaxis: {
-    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
   }
-}
+}))
 </script>
 
 <template>
   <div id="workflow-chart" class="p-5 rounded">
-    <VueApexCharts :type="type" height="230" :options="chartOptions" :series="series"></VueApexCharts>
+    <VueApexCharts
+      :type="type"
+      height="230"
+      :options="chartOptions"
+      :series="series"
+    ></VueApexCharts>
   </div>
 </template>
 
-<style >
+<style>
 #workflow-chart {
   background-color: white;
 }

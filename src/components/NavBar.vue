@@ -19,7 +19,7 @@ function onRightDrawerClick() {
 </script>
 
 <template>
-  <nav class="navbar p-5" id="navbar">
+  <nav class="navbar p-2" id="navbar">
     <div class="row items-center">
       <div id="d-drawer-btn" class="d-drawer-btn">
         <DBtn @click="$emit('drawer-click')" >

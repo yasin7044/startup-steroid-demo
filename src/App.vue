@@ -46,10 +46,10 @@ const rightDrawer = shallowRef(false)
 
           <div class="row d-col-gutter-md">
             <div class="col-md-12 col-xs-12 col-sm-6 col-lg-6">
-              <RecentWorkflowChart />
+              <RecentWorkflowChart title="Recent Workflow" />
             </div>
             <div class="col-md-12 col-xs-12 col-sm-6 col-lg-6">
-              <RecentWorkflowChart type="bar" />
+              <RecentWorkflowChart type="bar" title="Recent Marketing" />
             </div>
           </div>
 
@@ -74,7 +74,7 @@ const rightDrawer = shallowRef(false)
   }
 
   position: absolute;
-  top: 87px;
+  top: 74px;
   left: 300px;
   right: 250px;
   bottom: 0;
