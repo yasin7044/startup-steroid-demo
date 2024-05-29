@@ -11,7 +11,7 @@ const dropdownOpen = defineModel({
 <template>
   <div class="row items-center no-wrap">
     <DAvatar src="https://avatar.iran.liara.run/public/23" />
-    <DBtnDropdown v-model="dropdownOpen" label="Administrator" >
+    <DBtnDropdown v-model="dropdownOpen" label="Admin" >
       <div class="p-2 column" >
         <div class="cursor-pointer p-1">Developer</div>
         <div class="cursor-pointer p-1">Tester</div>

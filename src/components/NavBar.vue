@@ -21,7 +21,7 @@ function onRightDrawerClick() {
 <template>
   <nav class="navbar p-5" id="navbar">
     <div class="row items-center">
-      <div id="d-drawer-btn" >
+      <div id="d-drawer-btn" class="d-drawer-btn">
         <DBtn @click="$emit('drawer-click')" >
           <Icon icon="ei:navicon" />
         </DBtn>
@@ -32,7 +32,7 @@ function onRightDrawerClick() {
     </div>
 
     <div class="row no-wrap space-x-5 items-center">
-      <div id="d-drawer-btn" style="margin-right: 0.75rem !important;">
+      <div id="d-drawer-btn" style="margin: 0 !important;">
         <DBtn @click="onRightDrawerClick" >
           <Icon icon="mdi:recent" />
         </DBtn>
@@ -43,7 +43,7 @@ function onRightDrawerClick() {
   </nav>
 </template>
 
-<style>
+<style lang="scss">
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -64,7 +64,16 @@ function onRightDrawerClick() {
 
 @media only screen and (max-width: 1020px) {
   .navbar {
+    padding-left: 10px;
+    padding-right: 10px;
     left: 0;
+  }
+}
+
+#d-drawer-btn {
+  .d-btn {
+    padding-left: 0;
+    padding-right: 10px;
   }
 }
 </style>
