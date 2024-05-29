@@ -1,0 +1,140 @@
+@import './base.css';
+@import "./flex.sass";
+@import "./size.sass";
+
+#app {
+  max-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  font-weight: normal;
+  overflow: hidden;
+}
+
+.page-container {
+}
+
+// Utilities : Paddings, Margins
+$colors: (
+  'primary': #007bff,
+  'positive': #48be48,
+  'warning': #ffa700,
+  'negative': #f44336,
+  'white': white,
+);
+
+
+$d-spaces: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
+$d-sides: (top, right, bottom, left);
+
+@each $space in $d-spaces {
+  .m-#{$space} {
+    margin: #{calc($space/4)}rem;
+  }
+  .mx-#{$space} {
+    margin-left: #{calc($space/4)}rem;
+    margin-right: #{calc($space/4)}rem;
+  }
+  .my-#{$space} {
+    margin-top: #{calc($space/4)}rem;
+    margin-bottom: #{calc($space/4)}rem;
+  }
+  .p-#{$space} {
+    padding: #{calc($space/4)}rem;
+  }
+  .px-#{$space} {
+    padding-left: #{calc($space/4)}rem;
+    padding-right: #{calc($space/4)}rem;
+  }
+  .py-#{$space} {
+    padding-top: #{calc($space/4)}rem;
+    padding-bottom: #{calc($space/4)}rem;
+  }
+  @each $side in $d-sides {
+    .m#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{calc($space/4)}rem !important;
+    }
+    .p#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{calc($space/4)}rem !important;
+    }
+  }
+
+  .space-x-#{$space} {
+    &>*:not(:last-child) {
+      margin-right: #{calc($space/4)}rem !important;
+    }
+  }
+
+  .space-x-reverse-#{$space} {
+    &>*:not(:first-child) {
+      margin-left: #{calc($space/4)}rem !important;
+    }
+  }
+
+  .space-y-#{$space} {
+    &>*:not(:last-child) {
+      margin-bottom: #{calc($space/4)}rem !important;
+    }
+  }
+
+  .space-y-reverse-#{$space} {
+    &>*:not(:first-child) {
+      margin-top: #{calc($space/4)}rem !important;
+    }
+  }
+}
+
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    background-color: $color !important;
+  }
+
+  .text-#{$name} {
+    color: $color !important;
+  }
+}
+
+.page-container {
+}
+
+.rounded {
+  border-radius: 10px;
+}
+
+.iconify {
+  width: 24px;
+  height: 24px;
+}
+
+.text-start {
+  text-align: start;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.no-outline {
+  outline: 0 !important;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+small {
+  color: gray;
+}
