@@ -114,10 +114,11 @@ function getComponentProps(column, row) {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss">
 .table-wrapper {
   padding: 1rem;
   background-color: white;
+  overflow: auto;
 
   h3 {
     font-weight: 600;

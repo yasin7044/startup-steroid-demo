@@ -36,7 +36,7 @@ const rightDrawer = shallowRef(false)
     <RightDrawer v-model="rightDrawer" />
 
     <div class="page-container">
-      <main class="px-5">
+      <main class="px-5 pb-5">
         <div class="space-y-4">
           <div class="row items-center d-col-gutter-md">
             <div v-for="item in items" :key="item" class="col col-xs-12 col-sm-4 col-md-6 col-lg-4">
